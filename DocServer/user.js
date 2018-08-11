@@ -42,6 +42,11 @@ module.exports = {
       }
     });
   },
+  getProfile:function(req,res){
+    User.findOne({userName:req.decoded.userName},function(err,docs){
+      res.send(JSON.stringify(docs));
+    })
+  },
   login: function (req, res) {
     log = req.body;
     console.log(log);
